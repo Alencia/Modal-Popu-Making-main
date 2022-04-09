@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url(https://www.trinityhospice.co.uk/app/uploads/sites/2/2018/09/bark-in-the-park-16-099-1920x975.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.button {
+    background-color: rgb(247, 73, 21);
+    color: white;
+    pad: 1rem 2rem;
+    font-size: 25px;
+    border-radius: .25rem;
+    text-align: center;
+    width: 160px;
+    height: 30px;
+}
+
+.popup {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    right: 0;
+    bottom: 0;
+    transition: 0.65s ease-in-out;
+}
+
+.popup_inner {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 900px;
+    background-color: #fff;
+    border-radius: 1rem;
+    overflow: hidden;
+    bottom: -100vw;
+    right: -100vh;
+    transition: 0.65s ease-in-out;
+    transform: rotate(90deg)
+}
+
+.popup_inner h2 {
+    text-transform: uppercase;
+    font-size: 1.6rem;
+}
+
+.popup_inner p {
+    color: rgb(47, 51, 51);
+}
+
+.popup_inner .img {
+    height: 100%;
+    width: 45%;
+}
+
+.popup_inner .img img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.popup_inner .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 55%;
+    height: 65%;
+    padding: 2.5rem;
+}
+
+.popup_inner .close_popup {
+    position: absolute;
+    display: flex;
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: black;
+    color: white;
+    line-height: 3.5rem;
+    top: -20.4rem;
+    right: -20.4rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transform: rotate(90deg);
+    transition: .8s ease-in-out;
+    transition-delay: 1s;
+}
+
+.popup:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup:target .popup_inner {
+    bottom: 0;
+    right: 0;
+    transform: rotate(0);
+}
+
+.popup:target .popup_inner .close_popup {
+    top: -.4rem;
+    right: -.4rem;
+    transform: rotate(0);
+}
+
+.popup_inner.button {
+    transform: translateX(120%);
+    transition: .3s ease-in-out;
+    transition-delay: .6s;
+    z-index: 0;
+}
+
+.popup:target .popup_inner.button {
+    transform: translateX(0);
+}
